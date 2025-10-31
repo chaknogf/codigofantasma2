@@ -1,0 +1,19 @@
+<!-- Servicios -->
+<section class="servicios" id="servicios">
+
+  <div class="servicios-header">
+    <h2 class="titulo-seccion">Nuestros <span>Servicios</span></h2>
+    <p class="subtitulo-seccion">
+      Soluciones tecnológicas que transforman ideas en experiencias digitales asombrosas.
+    </p>
+  </div>
+
+  <div class="servicios-grid">
+    <div class="servicio-card" *ngFor="let s of servicios" data-tilt>
+      <div class="icono-servicio" [innerHTML]="icons[s.icon]"></div>
+      <h3>{{ s.titulo }}</h3>
+      <p>{{ s.descripcion }}</p>
+      <div class="glow"></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500&family=Patrick+Hand&display=swap');
+
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: url('/assets/phantom2.avif') center/cover no-repeat;
+  overflow: hidden;
+  color: #fff;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Efecto de superposición para contraste */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 40, 0.65);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+/* Contenedor del contenido principal */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1.5s ease;
+}
+
+/* Animación suave de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Título principal */
+.hero-title-box {
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: "Patrick Hand", cursive;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #a5b4fc, #ffffff, #f8f3f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.hero-icon {
+  display: block;
+  font-size: 2.5rem;
+  margin: 0 auto 0.5rem;
+  animation: floatIcon 3.5s ease-in-out infinite;
+}
+
+/* Animaciones */
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.15),
+                 0 0 16px rgba(167, 139, 250, 0.25);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.2),
+                 0 0 24px rgba(167, 139, 250, 0.4);
+  }
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Animación binaria */
+.binary-stream {
+  font-family: "Geist Mono", monospace;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typeBinary 6s steps(50, end) infinite;
+  text-shadow: 0 0 5px rgba(173, 216, 230, 0.5);
+}
+
+@keyframes typeBinary {
+  0% { width: 0; opacity: 0.6; }
+  40%, 60% { width: 100%; opacity: 1; }
+  100% { width: 0; opacity: 0.6; }
+}
+
+/* Textos */
+.hero-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.hero-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.highlight {
+  color: #ffd166;
+}
+
+.hero-text {
+  margin-top: 1rem;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Botones */
+.hero-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn-primary {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Contacto */
+.hero-contact {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-item,
+.btn-whatsapp {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.contact-item:hover,
+.btn-whatsapp:hover {
+  opacity: 1;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+
+  .hero-heading {
+    font-size: 1.3rem;
+  }
+
+  .hero-text {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    border-radius: 0;
+    padding: 1rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+  }
+}

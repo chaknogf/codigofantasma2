@@ -1,0 +1,126 @@
+/* Portafolio */
+.portafolio {
+  padding: 2rem 2rem;
+  text-align: center;
+  background: #f9fafb;
+}
+
+
+.portafolio h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #cfccf8;
+  letter-spacing: 1px;
+}
+
+/* Grid de proyectos */
+.portafolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+/* Tarjeta del proyecto */
+.proyecto-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+/* Hover efecto “wow” */
+.proyecto-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.25);
+}
+
+/* Imagen del proyecto */
+.proyecto-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.proyecto-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Información dentro de la tarjeta */
+.proyecto-card .info {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.proyecto-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #4f46e5;
+}
+
+.proyecto-card p {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+/* Botón / link del proyecto */
+.proyecto-card a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  background: #4f46e5;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.proyecto-card a:hover {
+  background: #7c3aed;
+  transform: scale(1.05);
+}
+
+/* Glow sutil en hover */
+.proyecto-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(79,70,229,0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.proyecto-card:hover::after {
+  opacity: 1;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .portafolio h2 {
+    font-size: 2rem;
+  }
+  .proyecto-card img {
+    height: 160px;
+  }
+}
+
+.portafolio {
+  background: radial-gradient(circle at 30% 30%, #0b0c1a, #090a14 80%);
+  color: #e5e7eb;
+}
+.proyecto-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}

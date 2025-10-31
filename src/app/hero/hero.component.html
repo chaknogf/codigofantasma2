@@ -1,0 +1,38 @@
+<section class="hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-title-box">
+      <span class="hero-icon" [innerHTML]="icons['ghost']"></span>
+      <h1 class="hero-title">Código Fantasma</h1>
+      <span class="binary-stream">
+        01101001 01101110 01110011 01110000 01101001 01110010 01100001 01100011 01101001 11000011 10110011 01101110
+      </span>
+    </div>
+
+    <p class="hero-subtitle">Desarrollo fácil y confiable</p>
+
+    <h2 class="hero-heading">
+      Desarrollo de <span class="highlight">páginas web</span>, apps web y móviles
+    </h2>
+
+    <p class="hero-text">
+      Creamos soluciones digitales modernas que impulsan tu presencia en línea.
+      Tecnología, diseño y rendimiento en un solo lugar.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#contacto" class="btn btn-primary">🚀 Comienza ahora</a>
+    </div>
+
+    <!-- Contacto rápido -->
+    <div class="hero-contact">
+      <a href="https://wa.me/50257627051" target="_blank" rel="noopener" class="btn-whatsapp">
+        <span [innerHTML]="icons['whatsapp']"></span> WhatsApp
+      </a>
+      <a href="mailto:chaknogf@gmail.com" class="contact-item">
+        <span [innerHTML]="icons['mail']"></span> {{ mailme }}
+      </a>
+    </div>
+  </div>
+</section>
