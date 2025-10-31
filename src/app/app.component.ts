@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { LandingComponent } from "./landing/landing.component";
+import { track } from '@vercel/analytics';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,19 @@ import { LandingComponent } from "./landing/landing.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'codfantasma2';
+export class AppComponent implements OnInit {
+
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+    // 🔹 Enviar evento cuando cambia la ruta
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        track('page_view', { path: event.urlAfterRedirects });
+      }
+    });
+
+    // 🔹 Ejemplo de evento personalizado
+    track('app_start', { timestamp: new Date().toISOString() });
+  }
 }
