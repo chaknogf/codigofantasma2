@@ -23,7 +23,8 @@ export class ContactoComponent implements OnInit {
       code: this.iconservice.getIcon("codeIcon"),
       computer: this.iconservice.getIcon("computerIcon"),
       mail: this.iconservice.getIcon("mailIcon"),
-      github: this.iconservice.getIcon("github")
+      github: this.iconservice.getIcon("github"),
+      linkedin: iconservice.getIcon("linkedinIcon")
 
     }
   }

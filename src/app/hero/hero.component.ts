@@ -12,6 +12,9 @@ export class HeroComponent implements OnInit {
   options: { nombre: string; descripcion: string; ruta: string; icon: string }[] = [];
   icons: { [key: string]: any } = {};
   mailme: string = 'chaknogf@gmail.com'
+  nombre = 'Ronald Chacón';
+  titulo = 'Desarrollador Fullstack & Arquitecto de Sistemas';
+  descripcion = 'Creo soluciones digitales con propósito, fusionando tecnología, diseño y estrategia.';
 
   constructor(
     private iconservice: IconService
@@ -26,6 +29,14 @@ export class HeroComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onToggleTheme(event: any) {
+    const isDark = event.target.checked;
+    const hero = document.getElementById('hero');
+    if (hero) {
+      hero.classList.toggle('dark-theme', isDark);
+    }
   }
 
 }

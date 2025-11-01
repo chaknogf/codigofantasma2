@@ -2,11 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { IconService } from '../service/icon.service';
 import { HeroComponent } from "../hero/hero.component";
-import { ServiciosComponent } from "../servicios/servicios.component";
 import { PortafolioComponent } from "../portafolio/portafolio.component";
-import { FooterComponent } from "../footer/footer.component";
 import { ContactoComponent } from "../contacto/contacto.component";
-import { Hero2Component } from "../hero2/hero2.component";
+import { AboutComponent } from '../about/about.component';
+import { HabilidadesComponent } from "../habilidades/habilidades.component";
 
 
 @Component({
@@ -14,7 +13,7 @@ import { Hero2Component } from "../hero2/hero2.component";
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css'],
   standalone: true,
-  imports: [CommonModule, HeroComponent, ServiciosComponent, PortafolioComponent, FooterComponent, ContactoComponent, Hero2Component]
+  imports: [CommonModule, HeroComponent, PortafolioComponent, ContactoComponent, AboutComponent, HabilidadesComponent]
 })
 export class LandingComponent implements OnInit {
   options: { nombre: string; descripcion: string; ruta: string; icon: string }[] = [];
@@ -38,6 +37,21 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+    const linterna = document.querySelector('.linterna') as HTMLElement;
+
+    document.addEventListener('mousemove', (e: MouseEvent) => {
+      const x = e.clientX / window.innerWidth * 100;
+      const y = e.clientY / window.innerHeight * 100;
+
+      linterna.style.background = `
+      radial-gradient(circle at ${x}% ${y}%,
+        rgba(255,255,255,0.2) 0%,
+        rgba(0,0,0,0.95) 25%,
+        rgba(0,0,0,1) 60%)
+    `;
+    });
+  }
 
 
 
