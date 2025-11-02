@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Asimovian&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Patrick+Hand&display=swap');
+
+.lobster-two-regular {
+  font-family: "Lobster Two", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lobster-two-bold {
+  font-family: "Lobster Two", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lobster-two-regular-italic {
+  font-family: "Lobster Two", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.lobster-two-bold-italic {
+  font-family: "Lobster Two", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+body, html {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+
+ }
+
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  transform-origin: center;
+}
+
+/* Capas con distinta velocidad */
+.layer-bg {
+  /* background-image: url('fondo-abstracto.jpg'); */
+  transform: translateZ(-2px) scale(3);
+}
+
+.layer-mid {
+  /* background-image: url('formas-neon.png'); */
+  transform: translateZ(-1px) scale(2);
+  opacity: 0.7;
+}
+
+.layer-front {
+  /* background-image: url('brillos.png'); */
+  transform: translateZ(0px) scale(1.2);
+  opacity: 0.6;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: #fff;
+  top: 35%;
+
+
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+
+
+.hero h1 {
+  font-family: 'Orbitron';
+  font-size: 3.2rem;
+}
+
+
+
+.title {
+  display: inline-block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 40px;
+  position: relative;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  /* text-transform: capitalize; */
+}
+
+.subtitles {
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Cada letra en un span */
+.title span {
+  display: inline-block;
+  animation: cambioFuente 4s ease-in forwards;
+  animation-timing-function: linear;
+  opacity: 0;
+}
+
+/* Animación progresiva letra por letra */
+.title span:nth-child(1) { animation-delay: 1s; }
+.title span:nth-child(2) { animation-delay: 0.4s; }
+.title span:nth-child(3) { animation-delay: 0.6s; }
+.title span:nth-child(4) { animation-delay: 0.8s; }
+/* … sigue incrementando según la cantidad de letras */
+
+/* Keyframes del cambio de fuente */
+@keyframes cambioFuente {
+  0% {
+    opacity: 0.5;
+    /* font-family:"Lobster Two", sans-serif; */
+    font-weight: 300;
+    letter-spacing: 40px;
+  }
+  50% {
+    opacity: 1;
+    /* font-family: "Lobster Two", sans-serif; */
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3.1rem;
+    letter-spacing: 30px;
+
+  }
+  75% {
+    /* font-family: "Lobster Two", sans-serif; */
+    font-weight: 400;
+    font-style: normal;
+    opacity: 1;
+    font-size: 3.17rem;
+    letter-spacing: 20px;
+  }
+
+  100% {
+    /* font-family: "Lobster Two", sans-serif; */
+    font-weight: 300;
+    font-style: normal;
+    opacity: 1;
+    font-size: 3rem;
+    letter-spacing: 10px;
+
+
+  }
+}
+
+
+  .space-letter {
+            display: inline-block;
+            width: 20px;
+  }
+
+
+
+

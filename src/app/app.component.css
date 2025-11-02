@@ -1,149 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Geist+Mono:wght@500&family=Patrick+Hand&display=swap');
-
-/* Reset y fuente base */
-:root {
-  --color-bg: #090a14;
-  --color-accent: #a78bfa;
-  --color-light: #f8f3f6;
-  --color-primary: #4f46e5;
-  --color-highlight: #ffd166;
-  --font-display: "Patrick Hand", cursive;
-  --font-mono: "Geist Mono", monospace;
-  --font-body: "Outfit", sans-serif;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-body);
-  color: #fff;
-  background: var(--color-bg);
-  margin: 0;
-}
-
-/* Hero Section */
-.hero {
-  position: relative;
-  min-height: 100dvh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  background: url('/assets/phantom2.avif') center/cover no-repeat;
-  overflow: hidden;
-  border-radius: 0 0 12px 12px;
-}
-
-.hero-overlay {
+/* From Uiverse.io by 20essentials */
+.container-espiral {
   position: absolute;
+  top: 0;
+  left: 0;
   inset: 0;
-  background: rgba(17, 17, 40, 0.7);
-  backdrop-filter: blur(3px);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  padding: 2rem;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(18px) saturate(160%);
-  border-radius: 1rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  animation: fadeIn 1.2s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3rem);
-  background: linear-gradient(90deg, var(--color-accent), var(--color-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: glowPulse 4s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-  0%, 100% { text-shadow: 0 0 10px rgba(255,255,255,0.2); }
-  50% { text-shadow: 0 0 20px rgba(167,139,250,0.4); }
-}
-
-.binary-stream {
-  display: inline-block;
-  font-family: var(--font-mono);
-  color: rgba(255,255,255,0.6);
-  font-size: 0.85rem;
-  animation: typing 6s steps(50, end) infinite;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-@keyframes typing {
-  0% { width: 0; opacity: 0.5; }
-  40%, 60% { width: 100%; opacity: 1; }
-  100% { width: 0; opacity: 0.5; }
-}
-
-/* Botones */
-.btn {
-  padding: 0.8rem 1.5rem;
-  border-radius: 25px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn-primary {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-.btn-primary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(79,70,229,0.6);
-}
-
-/* Contacto */
-.hero-contact {
-  margin-top: 1.5rem;
+  z-index: -50;
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  align-items: center;
-}
-
-/* Avatar Section */
-.cyber-avatar-section {
-  display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
-  padding: 4rem 2rem;
-  background: radial-gradient(circle at center, #0a0020 0%, #050014 100%);
+  place-content: center;
+
+  .loader {
+    position: relative;
+    transform: rotate(calc(var(--r) * 45deg));
+
+    .circulo {
+      --color: rgba(0, 255, 0, 0.677);
+      top: 0;
+      width: -200px;
+      height: 2px;
+      left: 100px;
+      position: absolute;
+      transform-origin: right;
+      transform: rotate(calc(var(--i) * 18deg));
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        width: 15px;
+        height: 15px;
+        background-color: var(--color);
+        border-radius: 50%;
+        box-shadow:
+          0 0 10px var(--color),
+          0 0 20px var(--color),
+          0 0 40px var(--color),
+          0 0 60px var(--color),
+          0 0 80px var(--color),
+          0 0 100px var(--color);
+        animation: animate 5s linear infinite ;
+        animation-delay: calc(var(--i) * -1.5s);
+      }
+    }
+  }
 }
 
-.avatar-frame {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #22d3ee, #8b5cf6, #ec4899);
-  padding: 4px;
-  transition: transform 0.4s ease;
-}
-
-.avatar-frame:hover {
-  transform: scale(1.1);
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .hero-content { padding: 1.5rem; }
-  .hero-title { font-size: 2rem; }
-  .cyber-avatar-section { flex-direction: column; align-items: center; }
+@keyframes animate {
+  0% {
+    transform: translateX(500px) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px) scale(0);
+    opacity: 1;
+  }
 }

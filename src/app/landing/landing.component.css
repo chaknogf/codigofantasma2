@@ -7,7 +7,7 @@
 
 
 /* 🔦 Capa oscura que será “perforada” por la linterna */
-.linterna {
+/* .linterna {
   position: absolute;
   top: 0;
   left: 0;
@@ -17,4 +17,4 @@
   mix-blend-mode: soft-light;
   pointer-events: none;
   transition: background 0.1s ease-out;
-}
+} */

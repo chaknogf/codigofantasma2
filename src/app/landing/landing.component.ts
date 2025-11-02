@@ -6,6 +6,7 @@ import { PortafolioComponent } from "../portafolio/portafolio.component";
 import { ContactoComponent } from "../contacto/contacto.component";
 import { AboutComponent } from '../about/about.component';
 import { HabilidadesComponent } from "../habilidades/habilidades.component";
+import { Hero2Component } from "../hero-2/hero2.component";
 
 
 @Component({
@@ -13,7 +14,7 @@ import { HabilidadesComponent } from "../habilidades/habilidades.component";
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css'],
   standalone: true,
-  imports: [CommonModule, HeroComponent, PortafolioComponent, ContactoComponent, AboutComponent, HabilidadesComponent]
+  imports: [CommonModule, PortafolioComponent, ContactoComponent, AboutComponent, HabilidadesComponent, Hero2Component]
 })
 export class LandingComponent implements OnInit {
   options: { nombre: string; descripcion: string; ruta: string; icon: string }[] = [];

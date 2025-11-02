@@ -5,6 +5,7 @@
   color: #e2e8f0;
   text-align: center;
   overflow: hidden;
+  border-radius: 10px 10px 0 0 ;
 }
 
 /* Sutil transición de luz entre secciones */
@@ -52,13 +53,11 @@
   background: rgba(30, 41, 59, 0.85);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(160, 233, 255, 0.05);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 0 35px rgba(160, 233, 255, 0.2);
+  box-shadow: 0 0 15px rgba(160, 233, 255, 0.2);
 }
 
 .img-container {

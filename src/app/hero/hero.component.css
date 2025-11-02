@@ -205,117 +205,242 @@
  */
 
 
- /* Paleta de Colores Inspirada: */
-/* Fondo: #0D1117 (Gris Oscuro/Negro casi Azul) */
-/* Texto Principal: #FFFFFF (Blanco Puro) */
-/* Acento Primario (Vibrante): #4D5BFF (Azul Eléctrico/Índigo) */
-/* Acento Secundario (Creativo): #FF4D94 (Magenta Vibrante) */
+  /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-.hero {
-    /* Fondo limpio y oscuro, muy Apple/Google */
-    background-color: #0D1117;
-    color: #FFFFFF;
-    min-height: 100vh; /* Asegura que ocupe toda la altura visible */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 20px;
-    /* Suaviza transiciones, esencial para una experiencia 'premium' */
-    transition: background-color 0.5s ease;
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      overflow: hidden;
+    }
+
+    /* Fondo vibrante animado */
+    .hero-background {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 20% 20%, #ff4d6d, transparent 20%),
+                  radial-gradient(circle at 80% 30%, #6a5cff, transparent 20%),
+                  radial-gradient(circle at 50% 80%, #1affd5, transparent 20%);
+      animation: animateBackground 15s infinite alternate;
+      z-index: 1;
+      filter: blur(150px);
+    }
+
+    @keyframes animateBackground {
+      0% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(-10%, 10%) scale(1.1); }
+      100% { transform: translate(10%, -10%) scale(1); }
+    }
+
+    /* Contenedor principal con glasformismo */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      background: #ffffff1a;
+      border-radius: 28px 28px 0 0 px;
+      padding: 60px 40px;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      max-height: 800px;
+      animation: fadeInUp 2s ease-out forwards;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 4px;
+      /* background: linear-gradient(90deg, #ff4d6d, #6a5cff, #1affd5); */
+      /* -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; */
+      animation: textGlow 3s infinite alternate;
+    }
+
+    @keyframes textGlow {
+      0% { text-shadow: 0 0 10px #ff4d6d, 0 0 20px #6a5cff, 0 0 30px #1affd5; }
+      100% { text-shadow: 0 0 20px #1affd5, 0 0 30px #6a5cff, 0 0 40px #ff4d6d; }
+    }
+
+    .hero-content h2 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #fff;
+      margin: 20px 0 15px;
+      opacity: 0;
+      animation: fadeIn 2s 0.5s forwards;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #e0e0e0;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 2s 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Animación sutil de flotación */
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      filter: blur(50px);
+      animation: float 6s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(2deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    .hero-icon {
+  display: block;
+  font-size: 3rem;
+  margin: 0 auto 0.5rem;
+  color: #000c0f;
+  animation: floatIcon 3.5s ease-in-out infinite;
 }
 
-.hero-content {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.15),
+                 0 0 16px rgba(167, 139, 250, 0.25);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.2),
+                 0 0 24px rgba(167, 139, 250, 0.4);
+  }
 }
 
-/* --- Ícono --- */
-.hero-icon-wrapper {
-    margin-bottom: 20px;
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
-.hero-icon {
-    /* Haz que el ícono principal sea grande y tome el color de acento */
-    font-size: 6rem;
-    line-height: 1;
-    display: inline-block;
-    color: #4D5BFF; /* Acento Primario */
-    /* Sombra sutil y elegante para dar profundidad */
-    text-shadow: 0 0 10px rgba(77, 91, 255, 0.5);
-    transition: transform 0.3s ease;
+.card {
+  background-color: transparent;
+  padding: 1rem 2rem;
+  border-radius: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.loader {
+  color: rgb(7, 7, 7);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 40px;
+  padding: 10px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  border-radius: 8px;
 }
 
-.hero-icon:hover {
-    transform: scale(1.05); /* Microinteracción */
+.words {
+  overflow: hidden;
+  position: relative;
+}
+.words::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--bg-color) 10%,
+    transparent 30%,
+    transparent 70%,
+    var(--bg-color) 90%
+  );
+  z-index: 20;
 }
 
-
-/* --- Tipografía --- */
-
-.hero-nombre {
-    /* Nombre más discreto, elegante */
-    font-family: 'Inter', sans-serif; /* Usar una fuente sans-serif moderna */
-    font-size: 1.5rem;
-    font-weight: 400;
-    opacity: 0.7; /* Texto menos dominante que el título */
-    margin-bottom: 5px;
+.descripcion {
+  margin: 0;
+  padding: 0 6px 0 0;
+  font-size: 18px;
 }
 
-.hero-titulo {
-    /* Título principal: GRANDE, AUDAZ y VIBRANTE (Estilo Apple/Google) */
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4.5rem); /* Escalable y grande */
-    font-weight: 800; /* Extra bold */
-    line-height: 1.1;
-    margin-bottom: 25px;
-
-    /* El toque de color vibrante: Gradiente Elegante */
-    background: linear-gradient(
-        45deg,
-        #4D5BFF 0%,   /* Azul Eléctrico */
-        #FF4D94 50%,   /* Magenta Vibrante */
-        #70a3ff 100% /* Azul más claro */
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+.word {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #2d1cea;
+  display: block;
+  height: 100%;
+  padding-left: 6px;
+  animation: spin_4991 4s infinite;
 }
+@keyframes spin_4991 {
+  10% {
+    -webkit-transform: translateY(-102%);
+    transform: translateY(-102%);
+  }
 
-.hero-descripcion {
-    /* Descripción: limpia y legible */
-    font-family: 'Inter', sans-serif;
-    font-size: 1.25rem;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
-    color: rgba(255, 255, 255, 0.85); /* Blanco suave */
-}
+  25% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
 
+  35% {
+    -webkit-transform: translateY(-202%);
+    transform: translateY(-202%);
+  }
 
-/* --- Botón CTA (Llamada a la Acción) --- */
+  50% {
+    -webkit-transform: translateY(-200%);
+    transform: translateY(-200%);
+  }
 
-.hero-cta-button {
-    display: inline-block;
-    padding: 12px 28px;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    border-radius: 50px; /* Borde redondeado, moderno */
+  60% {
+    -webkit-transform: translateY(-302%);
+    transform: translateY(-302%);
+  }
 
-    /* Gradiente para el botón: Usa los mismos colores vibrantes */
-    background: linear-gradient(45deg, #4D5BFF, #FF4D94);
-    color: #FFFFFF;
-    border: none;
-    box-shadow: 0 8px 20px rgba(77, 91, 255, 0.4); /* Sombra de profundidad */
+  75% {
+    -webkit-transform: translateY(-300%);
+    transform: translateY(-300%);
+  }
 
-    /* Efecto hover: Apple-like, sutil y elegante */
-    transition: all 0.3s ease;
-}
+  85% {
+    -webkit-transform: translateY(-402%);
+    transform: translateY(-402%);
+  }
 
-.hero-cta-button:hover {
-    transform: translateY(-3px); /* Pequeño levantamiento */
-    box-shadow: 0 12px 25px rgba(77, 91, 255, 0.6); /* Sombra más pronunciada */
-    filter: brightness(1.1);
+  100% {
+    -webkit-transform: translateY(-400%);
+    transform: translateY(-400%);
+  }
 }
