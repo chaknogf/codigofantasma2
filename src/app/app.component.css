@@ -1,6 +1,6 @@
 /* From Uiverse.io by 20essentials */
 .container-espiral {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   inset: 0;

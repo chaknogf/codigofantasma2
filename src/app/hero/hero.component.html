@@ -66,6 +66,34 @@
   </div>
 </section>
 
+<section class="portfolio" id="proyectos">
+  <h2 class="titulo">Portafolio</h2>
+  <p class="subtitulo">
+    Proyectos que reflejan mi enfoque en tecnología, diseño y propósito.
+  </p>
+
+  <div class="grid">
+    <div class="card" *ngFor="let p of proyectos">
+      <div class="img-container">
+        <img [src]="p.imagen" [alt]="p.titulo" />
+      </div>
+      <div class="info">
+        <h3>{{ p.titulo }}</h3>
+        <p>{{ p.descripcion }}</p>
+
+        <div class="tags">
+          <span class="tag" *ngFor="let t of p.tecnologias">{{ t }}</span>
+        </div>
+
+        <a class="btn" [href]="p.enlace" target="_blank" rel="noopener noreferrer">
+          Ver proyecto
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="contacto" id="contacto">
   <div class="contenedor">
     <h2 class="titulo">¿Listo para tu próximo proyecto?</h2>
