@@ -124,7 +124,7 @@ body {
 .about {
   background: rgba(12, 12, 12, 0.415);
   border-radius: 20px;
-  padding: clamp(2rem, 6vw, 6rem) 1rem;
+  padding: clamp(2rem, 11vw, 6rem) 1rem;
   margin: 2rem 0.2rem;
   backdrop-filter: blur(22px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -215,6 +215,7 @@ body {
   padding: clamp(3rem, 6vw, 5rem) 1rem;
   text-align: center;
   color: #a0e9ff;
+  border-radius: 8px;
 }
 
 .habilidades .grid {
@@ -240,7 +241,7 @@ body {
 /* ========= CONTACTO ========= */
 .contacto {
   background: linear-gradient(180deg, #0f172a 0%, #1a2540 60%, #101827 100%);
-  padding: clamp(3rem, 6vw, 5rem) 1rem;
+  padding: clamp(14rem, 6vw, 8rem) 1rem;
   text-align: center;
   color: #a0e9ff;
 }
@@ -265,6 +266,7 @@ body {
   width: 56px;
   height: 56px;
   margin-bottom: 1rem;
+  margin-top: 1rem;
   display: inline-block;
   color: #ffd166; /* amarillo que resalta */
   transition: transform 0.3s ease, filter 0.3s ease;
@@ -274,6 +276,7 @@ body {
 /* Animación al hover de la sección */
 .contacto:hover .icono-mail {
   animation: sendIcon 1s ease forwards;
+  transform: scale(1.2);
 }
 
 @keyframes sendIcon {
@@ -281,7 +284,7 @@ body {
   25% { transform: translateY(-6px) rotate(-5deg); filter: drop-shadow(0 0 8px #ffd166); }
   50% { transform: translateY(-12px) rotate(5deg); filter: drop-shadow(0 0 12px #ffd166); }
   75% { transform: translateY(-6px) rotate(-3deg); filter: drop-shadow(0 0 8px #ffd166); }
-  100% { transform: translateY(0) rotate(0deg); filter: drop-shadow(0 0 4px #ffd166); }
+  100% { transform: translateY(0) rotate(0deg); filter: drop-shadow(0 0 4px #ffd166);  }
 }
 
 
@@ -335,7 +338,7 @@ body {
 /* Grid general */
 .portfolio .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 2rem;
   max-width: 1100px;
   margin: 0 auto;
@@ -468,6 +471,9 @@ body {
     flex-direction: row;
     align-items: center;
     text-align: left;
+  }
+  .portfolio .grid  {
+    grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
   }
 }
 
