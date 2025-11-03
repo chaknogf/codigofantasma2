@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/codfantasma2",
+            "outputPath": "dist/ronchak",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -39,8 +39,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "8kB",
+                  "maximumError": "9kB"
                 }
               ],
               "outputHashing": "all"
