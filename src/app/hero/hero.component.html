@@ -1,128 +1,240 @@
 <section class="hero">
-  <div class="hero-content">
-    <h1 class="title">
-      <span>R</span>
-      <span>o</span>
-      <span>n</span>
-      <span>a</span>
-      <span>l</span>
-      <span>d </span>
-
-  <span class="space-letter"></span>
-
-      <span> C</span>
-      <span>h</span>
-      <span>a</span>
-      <span>c</span>
-      <span>ó</span>
-      <span>n</span>
+  <div class="hero-container">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Disponible para proyectos
+    </div>
+    <h1 class="hero-title">
+      <span class="title-line title-serif">
+        <span class="letter" style="--i: 0">R</span
+        ><span class="letter" style="--i: 1">o</span
+        ><span class="letter" style="--i: 2">n</span
+        ><span class="letter" style="--i: 3">a</span
+        ><span class="letter" style="--i: 4">l</span
+        ><span class="letter" style="--i: 5">d</span>
+      </span>
+      <span class="hero-image-slot img-ron">
+        <img src="/assets/ron.png" alt="Ronald Chacón" class="hero-image" />
+        <div class="hero-image-glow"></div>
+      </span>
+      <span class="title-line title-gradient title-serif">
+        <span class="letter" style="--i: 6">C</span
+        ><span class="letter" style="--i: 7">h</span
+        ><span class="letter" style="--i: 8">a</span
+        ><span class="letter" style="--i: 9">c</span
+        ><span class="letter" style="--i: 10">ó</span
+        ><span class="letter" style="--i: 11">n</span>
+      </span>
     </h1>
-    <h2 class="subtitles">Desarrollador Fullstack & Arquitecto de Sistemas</h2>
-    <p class="subtitles">Creo soluciones digitales con propósito, fusionando tecnología, diseño y estrategia.</p>
+    <p class="hero-role">Desarrollador Fullstack & Arquitecto de Sistemas</p>
+    <p class="hero-description">
+      Creo soluciones digitales con proposito, fusionando tecnologia, diseno y
+      estrategia.
+    </p>
+    <div class="hero-actions">
+      <a href="#proyectos" class="btn-primary">
+        Ver proyectos
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+      <a href="#contacto" class="btn-secondary">Contactar</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">4+</span>
+        <span class="stat-label">Anos de experiencia</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">10+</span>
+        <span class="stat-label">Proyectos completados</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Compromiso</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="about">
-  <div class="content">
-    <div class="text">
-      <h2 class="titulo">{{ aboutMe }}</h2>
-      <div class="texto">
-        <p *ngFor="let p of parrafos">{{ p }}</p>
-      </div>
-
-      <div class="skills">
-        <div class="skill" *ngFor="let s of skills">
-          <span class="icon" [innerHTML]="icons[s.icon]"></span>
-          <span class="label">{{ s.label }}</span>
+<section class="about" id="sobre-mi">
+  <div class="section-container">
+    <div class="about-grid">
+      <div class="about-image">
+        <div class="image-frame">
+          <img src="/assets/me.avif" alt="Ronald Chacon" />
+          <div class="image-overlay"></div>
         </div>
       </div>
-    </div>
-
-    <div class="avatar">
-      <div class="circle"></div>
-      <img src="/assets/me.avif" alt="Avatar" />
+      <div class="about-content">
+        <span class="section-tag">Sobre mi</span>
+        <h2 class="section-title">Construyendo el futuro digital</h2>
+        <div class="about-text">
+          <p>
+            Soy un apasionado de la tecnologia y la innovacion, con una vision
+            integral que combina desarrollo, arquitectura de sistemas y diseno
+            digital.
+          </p>
+          <p>
+            Disfruto transformar ideas complejas en soluciones simples y
+            efectivas. Me motiva crear herramientas que impacten positivamente
+            la vida de las personas.
+          </p>
+          <p>
+            Actualmente enfoco mi trabajo en proyectos web, APIs escalables y
+            entornos distribuidos. Cada linea de codigo es parte de una historia
+            que quiero contar bien.
+          </p>
+        </div>
+        <div class="about-skills">
+          <div class="skill-tag" *ngFor="let s of skills">
+            <span class="skill-icon" [innerHTML]="icons[s.icon]"></span>
+            {{ s.label }}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="habilidades" id="habilidades">
-  <h2 class="titulo">Habilidades y Servicios</h2>
-  <p class="subtitulo">Competencias que combinan técnica, diseño y propósito.</p>
-
-  <div class="grid">
-    <!-- Servicios -->
-    <div class="card servicio" *ngFor="let s of servicios">
-      <div class="icono" [innerHTML]="icons[s.icon]"></div>
-      <h3>{{ s.titulo }}</h3>
-      <p>{{ s.descripcion }}</p>
-    </div>
-
-    <!-- Habilidades -->
-    <div class="card habilidad" *ngFor="let h of habilidades">
-      <div class="icono" [innerHTML]="icons[h.icono]"></div>
-      <h3>{{ h.nombre }}</h3>
-      <p>{{ h.descripcion }}</p>
+  <div class="section-container">
+    <span class="section-tag center">Servicios</span>
+    <h2 class="section-title center">Habilidades y Servicios</h2>
+    <p class="section-subtitle">
+      Competencias que combinan tecnica, diseno y proposito.
+    </p>
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let s of servicios">
+        <div class="service-icon" [innerHTML]="icons[s.icon]"></div>
+        <h3>{{ s.titulo }}</h3>
+        <p>{{ s.descripcion }}</p>
+        <div class="service-arrow">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path
+              d="M5 15L15 5M15 5H8M15 5v7"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="service-card" *ngFor="let h of habilidades">
+        <div class="service-icon" [innerHTML]="icons[h.icono]"></div>
+        <h3>{{ h.nombre }}</h3>
+        <p>{{ h.descripcion }}</p>
+        <div class="service-arrow">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path
+              d="M5 15L15 5M15 5H8M15 5v7"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="portfolio" id="proyectos">
-  <h2 class="titulo">Portafolio</h2>
-  <p class="subtitulo">
-    Proyectos que reflejan mi enfoque en tecnología, diseño y propósito.
-  </p>
-
-  <div class="grid">
-    <div class="card" *ngFor="let p of proyectos">
-      <div class="img-container">
-        <img [src]="p.imagen" [alt]="p.titulo" />
-      </div>
-      <div class="info">
-        <h3>{{ p.titulo }}</h3>
-        <p>{{ p.descripcion }}</p>
-
-        <div class="tags">
-          <span class="tag" *ngFor="let t of p.tecnologias">{{ t }}</span>
+  <div class="section-container">
+    <span class="section-tag center">Portafolio</span>
+    <h2 class="section-title center">Proyectos destacados</h2>
+    <p class="section-subtitle">
+      Proyectos que reflejan mi enfoque en tecnologia, diseno y proposito.
+    </p>
+    <div class="projects-grid">
+      <div class="project-card" *ngFor="let p of proyectos">
+        <div class="project-image">
+          <img [src]="p.imagen" [alt]="p.titulo" />
+          <div class="project-overlay">
+            <a
+              [href]="p.enlace"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M7 17L17 7M17 7H7M17 7v10"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
+        <div class="project-info">
+          <h3>{{ p.titulo }}</h3>
+          <p>{{ p.descripcion }}</p>
+          <div class="project-tags">
+            <span class="project-tag" *ngFor="let t of p.tecnologias">{{
+              t
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <a class="btn" [href]="p.enlace" target="_blank" rel="noopener noreferrer">
-          Ver proyecto
+<section class="contacto" id="contacto">
+  <div class="section-container">
+    <div class="contact-card">
+      <div class="contact-glow"></div>
+      <span class="section-tag center">Contacto</span>
+      <h2 class="section-title center">Listo para tu proximo proyecto?</h2>
+      <p class="section-subtitle">
+        Cuentame tu idea y la convertire en una solucion real.
+      </p>
+      <a href="mailto:chaknogf@gmail.com" class="btn-primary btn-large">
+        <span class="icon-mail" [innerHTML]="icons['mail']"></span>
+        Enviar mensaje
+      </a>
+      <div class="contact-socials">
+        <a
+          href="https://github.com/chaknogf"
+          target="_blank"
+          rel="noopener"
+          class="social-link"
+        >
+          <span [innerHTML]="icons['github']"></span>
+          <span>GitHub</span>
+        </a>
+        <a
+          href="https://linkedin.com/in/ronald-chacon"
+          target="_blank"
+          class="social-link"
+        >
+          <span [innerHTML]="icons['linkedin']"></span>
+          <span>LinkedIn</span>
         </a>
       </div>
     </div>
   </div>
 </section>
 
-
-<section class="contacto" id="contacto">
-  <div class="contenedor">
-    <h2 class="titulo">¿Listo para tu próximo proyecto?</h2>
-    <p class="subtitulo">
-      Cuéntame tu idea y la convertiré en una solución real.
-    </p>
-
-    <span class="icono-mail" [innerHTML]="icons['mail']"></span>
-
-    <div class="redes">
-    <div class="footer-container">
-
-    <a
-      href="https://github.com/chaknogf"
-      target="_blank"
-      rel="noopener"
-      class="footer-link"
-    >
-      <span [innerHTML]="icons['github']"></span> chaknogf
-    </a>
-    <a
-    href="https://linkedin.com/in/ronald-chacón"
-    target="_blank"
-    class="footer-link"
-    >
-      <span [innerHTML]="icons['linkedin']"></span>LinkedIn</a>
-  </div>
+<footer class="footer">
+  <div class="section-container">
+    <div class="footer-content">
+      <span class="footer-logo">&lt;RC/&gt;</span>
+      <p class="footer-text">Diseñado y desarrollado por Ronald Chacon</p>
+      <p class="footer-copyright">&copy; 2026 ronchak.dev</p>
     </div>
   </div>
-</section>
-
-
+</footer>
