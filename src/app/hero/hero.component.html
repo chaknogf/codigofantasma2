@@ -1,65 +1,79 @@
 <section class="hero">
   <div class="hero-container">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      Disponible para proyectos
-    </div>
-    <h1 class="hero-title">
-      <span class="title-line title-serif">
-        <span class="letter" style="--i: 0">R</span
-        ><span class="letter" style="--i: 1">o</span
-        ><span class="letter" style="--i: 2">n</span
-        ><span class="letter" style="--i: 3">a</span
-        ><span class="letter" style="--i: 4">l</span
-        ><span class="letter" style="--i: 5">d</span>
-      </span>
-      <span class="hero-image-slot img-ron">
-        <img src="/assets/ron.png" alt="Ronald Chacón" class="hero-image" />
-        <div class="hero-image-glow"></div>
-      </span>
-      <span class="title-line title-gradient title-serif">
-        <span class="letter" style="--i: 6">C</span
-        ><span class="letter" style="--i: 7">h</span
-        ><span class="letter" style="--i: 8">a</span
-        ><span class="letter" style="--i: 9">c</span
-        ><span class="letter" style="--i: 10">ó</span
-        ><span class="letter" style="--i: 11">n</span>
-      </span>
-    </h1>
-    <p class="hero-role">Desarrollador Fullstack & Arquitecto de Sistemas</p>
-    <p class="hero-description">
-      Creo soluciones digitales con proposito, fusionando tecnologia, diseno y
-      estrategia.
-    </p>
-    <div class="hero-actions">
-      <a href="#proyectos" class="btn-primary">
-        Ver proyectos
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path
-            d="M3 8h10M9 4l4 4-4 4"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+    <!-- Left: Image -->
+    <div class="hero-image-wrapper">
+      <div class="hero-image-container">
+        <picture>
+          <source media="(max-width: 767px)" srcset="/assets/roni2.png" />
+          <img
+            src="/assets/roni.png"
+            alt="Ronald Chacón"
+            class="hero-image"
+            width="960"
+            height="1280"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
           />
-        </svg>
-      </a>
-      <a href="#contacto" class="btn-secondary">Contactar</a>
+        </picture>
+        <div class="hero-image-glow"></div>
+        <div class="hero-image-border"></div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-number">4+</span>
-        <span class="stat-label">Anos de experiencia</span>
+
+    <!-- Right: Content -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Disponible para proyectos
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-number">10+</span>
-        <span class="stat-label">Proyectos completados</span>
+
+      <div class="hero-title-wrapper">
+        <h1 class="hero-title">
+          Ronald
+          <span class="title-accent">Chacón</span>
+        </h1>
+        <p class="hero-subtitle">
+          Desarrollador Fullstack & Arquitecto de Sistemas
+        </p>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-number">100%</span>
-        <span class="stat-label">Compromiso</span>
+
+      <p class="hero-description">
+        Creo soluciones digitales con propósito, fusionando tecnología, diseño y
+        estrategia para resolver problemas reales.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M3 8h10M9 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Ver proyectos
+        </a>
+        <a href="#contacto" class="btn-secondary">Contactar</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">4+</span>
+          <span class="stat-label">Años de experiencia</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Compromiso</span>
+        </div>
       </div>
     </div>
   </div>
@@ -68,12 +82,7 @@
 <section class="about" id="sobre-mi">
   <div class="section-container">
     <div class="about-grid">
-      <div class="about-image">
-        <div class="image-frame">
-          <img src="/assets/me.avif" alt="Ronald Chacon" />
-          <div class="image-overlay"></div>
-        </div>
-      </div>
+      <div class="about-image"></div>
       <div class="about-content">
         <span class="section-tag">Sobre mi</span>
         <h2 class="section-title">Construyendo el futuro digital</h2>
