@@ -282,6 +282,197 @@
 }
 
 /* ============================================
+   MOBILE ONLY — roni2.png detrás del title + título robótico
+   ============================================ */
+@media (max-width: 767px) {
+  .hero {
+    overflow: hidden;
+    padding-top: 0.75rem;
+  }
+
+  .hero-container {
+    position: relative;
+    display: block;
+  }
+
+  /* imagen pasa a fondo detrás del título — desplazada 30% a la derecha */
+  .hero-image-wrapper {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(calc(-50% + 30%));
+    width: min(108vw, 460px);
+    height: clamp(380px, 92vw, 520px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 1;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .hero-image-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center top;
+    /* se funde hacia abajo para no tapar el contenido */
+    -webkit-mask-image: linear-gradient(to bottom, black 58%, transparent 92%);
+    mask-image: linear-gradient(to bottom, black 58%, transparent 92%);
+    opacity: 0.42;
+    filter: drop-shadow(0 12px 28px rgba(0,0,0,0.55)) saturate(0.95) contrast(1.05);
+    animation: none;
+  }
+
+  .hero-image-glow {
+    width: 90%;
+    bottom: 8%;
+    opacity: 0.9;
+    background: radial-gradient(ellipse at center, rgba(56,189,248,0.22) 0%, rgba(129,140,248,0.10) 35%, transparent 70%);
+    filter: blur(32px);
+  }
+
+  /* scanlines sutiles sobre la imagen para toque robot/sistema */
+  .hero-image-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(56,189,248,0.04) 4px
+    );
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 92%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 92%);
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding-top: clamp(168px, 46vw, 248px);
+  }
+
+  /* badge flotando arriba, sobre la imagen */
+  .hero-badge {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    background: rgba(0, 0, 0, 0.44);
+    backdrop-filter: blur(12px) saturate(1.15);
+    -webkit-backdrop-filter: blur(12px) saturate(1.15);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.07);
+    white-space: nowrap;
+    animation: fadeInUp 0.6s ease-out both;
+  }
+
+  .hero-title-wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title {
+    position: relative;
+    z-index: 2;
+    text-shadow:
+      0 2px 18px rgba(0,0,0,0.85),
+      0 0 28px rgba(56,189,248,0.16);
+    animation: roboGlitch 3.8s infinite steps(1);
+    will-change: transform, text-shadow, filter;
+  }
+
+  /* accent con flicker robótico desfasado */
+  .hero-title .title-accent {
+    position: relative;
+    display: block;
+    animation: roboFlicker 3.8s infinite steps(1);
+  }
+
+  /* línea de escaneo que cruza el título */
+  .hero-title::after {
+    content: '';
+    position: absolute;
+    left: -4%;
+    right: -4%;
+    top: 48%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56,189,248,0.9), transparent);
+    box-shadow: 0 0 10px rgba(56,189,248,0.7), 0 0 20px rgba(129,140,248,0.4);
+    opacity: 0;
+    pointer-events: none;
+    animation: roboScan 3.8s infinite;
+  }
+
+  .hero-subtitle {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.8);
+  }
+}
+
+/* animaciones robóticas — mobile + medianas/grandes (title) */
+@keyframes roboGlitch {
+  0%, 88%, 100% {
+    transform: translate(0);
+    text-shadow: 0 2px 18px rgba(0,0,0,0.85), 0 0 28px rgba(56,189,248,0.16);
+    filter: none;
+  }
+  89% {
+    transform: translate(1.2px, -0.6px);
+    text-shadow: -1.4px 0 #38bdf8, 1.4px 0 #818cf8, 0 2px 18px rgba(0,0,0,0.85);
+    filter: brightness(1.08) contrast(1.05);
+  }
+  89.6% {
+    transform: translate(-1px, 0.4px);
+    text-shadow: 1.2px 0 #38bdf8, -1.2px 0 #818cf8, 0 2px 18px rgba(0,0,0,0.85);
+  }
+  90% {
+    transform: translate(0.6px, 0);
+    text-shadow: -0.8px 0 #38bdf8, 0.8px 0 #818cf8;
+  }
+  90.5% {
+    transform: translate(0);
+    text-shadow: 0 2px 18px rgba(0,0,0,0.85), 0 0 28px rgba(56,189,248,0.16);
+    filter: none;
+  }
+}
+
+@keyframes roboFlicker {
+  0%, 88%, 100% { opacity: 1; filter: none; }
+  89% { opacity: 0.92; filter: brightness(1.12); }
+  89.4% { opacity: 0.6; }
+  89.8% { opacity: 1; }
+  90.2% { opacity: 0.85; }
+  90.6% { opacity: 1; }
+}
+
+@keyframes roboScan {
+  0%, 88% { opacity: 0; transform: translateY(-18px); }
+  89% { opacity: 0; transform: translateY(-18px); }
+  89.3% { opacity: 0.95; }
+  91% { opacity: 0.95; transform: translateY(18px); }
+  91.4% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 0; transform: translateY(18px); }
+}
+
+@keyframes roboFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.012); }
+}
+
+/* ============================================
    ABOUT — imagen escalada y contenida
    ============================================ */
 .about { padding: clamp(2.5rem, 6vw, 4rem) 0; overflow: clip; }
@@ -582,7 +773,33 @@
   .hero { min-height: min(92dvh, 760px); padding: 2.5rem 0; }
   .hero-container { grid-template-columns: 1.1fr 1.05fr; gap: 1.5rem; }
   .hero-image-wrapper { padding: 0; align-items: flex-end; }
-  .hero-title { font-size: clamp(2.6rem, 4.5vw, 3.6rem); }
+  .hero-title {
+    font-size: clamp(2.6rem, 4.5vw, 3.6rem);
+    position: relative;
+    text-shadow:
+      0 2px 18px rgba(0,0,0,0.85),
+      0 0 28px rgba(56,189,248,0.16);
+    animation: roboGlitch 3.8s infinite steps(1);
+    will-change: transform, text-shadow, filter;
+  }
+  .hero-title .title-accent {
+    position: relative;
+    display: block;
+    animation: roboFlicker 3.8s infinite steps(1);
+  }
+  .hero-title::after {
+    content: '';
+    position: absolute;
+    left: -4%;
+    right: -4%;
+    top: 48%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56,189,248,0.9), transparent);
+    box-shadow: 0 0 10px rgba(56,189,248,0.7), 0 0 20px rgba(129,140,248,0.4);
+    opacity: 0;
+    pointer-events: none;
+    animation: roboScan 3.8s infinite;
+  }
   .hero-stats { gap: 1.25rem; }
   .stat { text-align: left; }
   .stat-number { font-size: 1.25rem; }
